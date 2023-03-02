@@ -1,0 +1,25 @@
+$primary: #ff0105;
+$secondary: #ff7501;
+
+.pagination {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    justify-content: space-between;
+}
+
+.prev,
+.next {
+    border: 1px solid darken(white, 20%);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+
+    a {
+        color: lighten(black, 10%)
+    }
+}
+
+.center {
+    color: lighten(black, 20%);
+}

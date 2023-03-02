@@ -1,0 +1,19 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Notion to Hugo Blog'
+
+uglyurls = true
+
+[outputs]
+home = ["HTML", "AMP", "Sitemap"]
+page = ["HTML", "AMP"]
+
+[markup]
+
+[markup.highlight]
+style = "xcode"
+lineNos = false
+
+[markup.tableOfContents]
+endLevel = 5
+startLevel = 1

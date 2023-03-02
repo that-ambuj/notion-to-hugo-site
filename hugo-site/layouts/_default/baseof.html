@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{ block "head" . }}
+
+    {{ end }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" href="/logo.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Fira+Code&display=swap"
+        rel="stylesheet">
+
+    {{ $sassNav := resources.Get "sass/navbar.scss" }}
+    {{ $styleNav := $sassNav | resources.ToCSS | resources.PostCSS | minify }}
+    <link rel="stylesheet" href="{{ $styleNav.RelPermalink }}">
+
+    {{ $sassFooter := resources.Get "sass/footer.scss" }}
+    {{ $styleFooter := $sassFooter | resources.ToCSS | resources.PostCSS | minify }}
+    <link rel="stylesheet" href="{{ $styleFooter.RelPermalink }}">
+
+    {{ $sassMain := resources.Get "sass/main.scss" }}
+    {{ $styleMain := $sassMain | resources.ToCSS | resources.PostCSS | minify }}
+    <link rel="stylesheet" href="{{ $styleMain.RelPermalink }}">
+    <title>
+        {{ block "title" . }}
+        {{ .Site.Title }}
+        {{ end }}
+    </title>
+</head>
+
+<body>
+    {{ partial "navmenu.html" . }}
+
+    {{ block "main" . }} {{ end }}
+
+    {{/* TODO: Add Pagination */}}
+    {{ partialCached "footer.html" . }}
+</body>
+
+{{ block "script" . }}
+
+{{ end }}
+
+</html>

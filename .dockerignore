@@ -1,0 +1,16 @@
+hugo-site/content/*
+hugo-site/public
+!hugo-site/content/_index.md
+
+hugo-site/static/*
+!hugo-site/static/wavy-bg.png
+!hugo-site/static/wavy-bg-orange.png
+!hugo-site/static/robots.txt
+!markdonw/static/*.svg
+
+hugo-site/resources
+
+static-site
+
+node_modules
+.wakatime-project

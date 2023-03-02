@@ -1,0 +1,195 @@
+$primary: #ff0105;
+$secondary: #ff7501;
+
+#toc {
+    display: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+#title {
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+        align-self: flex-start;
+        margin-right: auto;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        text-align: left;
+        font-weight: 400;
+        color: lighten(black, 10%);
+        font-size: clamp(2.2em, 4.7vw, 4em);
+        letter-spacing: -0.055em;
+        letter-spacing: -2px;
+        padding: 0 0.8rem;
+    }
+}
+
+#info {
+    display: flex;
+    justify-content: flex-start;
+    gap: 7em;
+    padding: 0.7rem 1rem;
+    border-top: 1px solid darken(white, 15%);
+
+    .date {
+        font-weight: 600;
+        color: lighten(black, 40%)
+    }
+
+    .author {
+        font-weight: 600;
+        color: lighten(black, 10%)
+    }
+
+    ul {
+        display: none;
+    }
+}
+
+blockquote {
+    color: lighten(black, 40%);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+article {
+    padding: 0 1rem;
+    margin-top: 3rem;
+
+    pre,
+    code {
+        background-color: darken(white, 3%) !important;
+        font-size: 0.9rem;
+        font-family: 'Fira Code';
+    }
+
+    pre {
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+        padding: 0.75rem 1rem;
+    }
+
+    img {
+        max-width: 100%
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        a {
+            color: lighten(black, 10%);
+            text-decoration: none;
+            transition: all 300ms ease-out;
+        }
+
+        a:hover {
+            color: lighten(black, 40%)
+        }
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+
+    h3 {
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-weight: 400;
+    }
+
+    a {
+        color: lighten(black, 30%);
+    }
+
+    a:hover {
+        color: #f85b55
+    }
+}
+
+.highlighted {
+    color: $secondary !important;
+}
+
+@media (min-width: 40em) {
+    #title {
+        background-size: 125%;
+    }
+}
+
+@media (min-width: 70em) {
+    #title h1 {
+        background-size: cover;
+        letter-spacing: -3px;
+    }
+
+    #info {
+        ul {
+            display: block;
+            list-style: none;
+            margin: 0;
+        }
+
+        .tag {
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+
+            text-decoration: none;
+            color: black
+        }
+    }
+
+    #content-container {
+        display: flex;
+
+        aside {
+            align-self: flex-start;
+            display: block;
+            position: sticky;
+            overflow: auto;
+            top: 100px;
+            min-width: 20vw;
+            margin-top: 30px;
+            line-height: 1.4;
+
+            li {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: lighten(black, 45%);
+                font-weight: 500;
+            }
+
+            a:hover {
+                color: lighten(black, 20%)
+            }
+
+
+            ul {
+                margin: 0;
+                list-style-type: none;
+                margin-bottom: 4px;
+            }
+        }
+    }
+}

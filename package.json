@@ -1,0 +1,26 @@
+{
+  "name": "notion-download-script",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "download": "yarn clean:static && node index.js",
+    "clean:static": "find ./hugo-site/static -type f -not -name wavy-bg.png -not -name wavy-bg-orange.png -not -name \\*.svg -not -name robots.txt | xargs rm -f",
+    "clean": "yarn clean:static && find ./hugo-site/content -type f -not -name _index.md | xargs rm || true && rm -rf static-site",
+    "build": "rm -rf static-site && cd hugo-site && hugo --minify -d ../static-site",
+    "build:docker": "rm -rf static-site && cd hugo-site && hugo -b http://localhost:8011/ --minify -d ../static-site",
+    "serve": "cd hugo-site && hugo server",
+    "build:clean": "yarn clean && yarn download && yarn build"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.3",
+    "dotenv": "^16.0.3",
+    "global": "^4.4.0",
+    "notion-to-md": "https://github.com/that-ambuj/notion-to-md",
+    "postcss-cli": "^10.1.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.20"
+  }
+}

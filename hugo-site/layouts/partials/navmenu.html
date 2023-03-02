@@ -1,0 +1,56 @@
+<div id="nav-container">
+  <div class="nav-container-inner">
+    <a href="/" class="flex" style="align-items: center;">
+      <img id="logo-svg" src="/logo.svg" style="max-height: 40px;" alt="Logo">
+      <span style="font-weight: 500; color: black;">Neuralware Inc.</span>
+    </a>
+
+    <button id="mobile-nav-toggle" aria-controls="navigation-links" aria-expanded="false">
+      <div class="mobile-menu flex">
+        <div class="mobile-menu-line" id="line-1"></div>
+        <div class="mobile-menu-line" id="line-2"></div>
+      </div>
+    </button>
+
+    <div id="desktop-nav-links" class="flex">
+      <a class="nav-link" href="#">
+        Jobs
+      </a>
+      <a class="nav-link active" href="/">
+        Blog
+      </a>
+      <a class="nav-link" href="#">
+        About Us
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="mobile-nav-links" data-visible="false" class="flex">
+  <a class="nav-link" href="#">
+    Jobs
+  </a>
+  <a class="nav-link active" href="/">
+    Blog
+  </a>
+  <a class="nav-link" href="#">
+    About Us
+  </a>
+</div>
+
+<script defer>
+  const navList = document.querySelector("#mobile-nav-links");
+  const navToggle = document.querySelector("#mobile-nav-toggle");
+
+  navToggle.addEventListener('click', () => {
+    const visibility = navList.getAttribute('data-visible');
+
+    if (visibility === "false") {
+      navList.setAttribute('data-visible', true);
+      navToggle.setAttribute('aria-expanded', true);
+    } else {
+      navList.setAttribute('data-visible', false);
+      navToggle.setAttribute('aria-expanded', false);
+    }
+  })
+</script>

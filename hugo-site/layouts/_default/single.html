@@ -1,0 +1,64 @@
+{{ define "head" }}
+{{ $sass := resources.Get "sass/single-page-responsive.scss" }}
+{{ $style := $sass | resources.ToCSS | resources.PostCSS | minify }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ end }}
+
+{{ define "title" }}
+{{ .Title }} | {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+<div class="container">
+    <div id="title">
+        <h1>{{ .Title }}</h1>
+    </div>
+    <div id="info">
+        <span class="author">{{ .Params.author }}</span>
+        <span class="date">{{ .Date | time.Format ":date_long" }}</span>
+
+        <ul class="tags" style="align-self: flex-end; margin-left: auto">
+            {{ range (.GetTerms "tags") }}
+            <a class="tag" href="{{ .RelPermalink }}">{{ .Title}}</a>
+            {{ end }}
+        </ul>
+    </div>
+    <div id="content-container">
+        {{/* <aside id="toc">{{ .TableOfContents }}</aside> */}}
+        <article>{{ .Content }}</article>
+    </div>
+</div>
+{{ end }}
+
+{{ define "script" }}
+{{/*
+<script defer>
+    let observedSectionId;
+    let sections = document.querySelectorAll("h1, h2, h3, h4, h5")
+    let article = document.querySelector("article")
+
+    const url = location.href.split("#")[0]
+
+    let observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                observedSectionId = e.target.id
+            }
+        })
+    }, {})
+
+    sections.forEach(s => observer.observe(s))
+
+    let tocItems = document.querySelectorAll("#toc ul li a")
+
+    window.onscroll = function () {
+        tocItems.forEach(elem => {
+            if (elem.href === `${url}#${observedSectionId}`) {
+                elem.classList.add("highlighted")
+            } else {
+                elem.classList.remove("highlighted")
+            }
+        })
+    }
+</script> */}}
+{{ end }}

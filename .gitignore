@@ -1,0 +1,17 @@
+.env
+hugo-site/content/*
+hugo-site/public
+!hugo-site/content/_index.md
+
+hugo-site/static/*
+!hugo-site/static/wavy-bg.png
+!hugo-site/static/*.svg
+!hugo-site/static/wavy-bg-orange.png
+!hugo-site/static/robots.txt
+
+hugo-site/resources
+
+static-site
+
+node_modules
+.wakatime-project

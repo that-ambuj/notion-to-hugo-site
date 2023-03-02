@@ -1,0 +1,45 @@
+$secondary: #ff7501;
+
+.footer {
+    background-color: darken(white, 5%);
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5em;
+    }
+
+    .logo {
+        max-width: 15rem;
+    }
+
+    .details {
+        padding: 2.5rem;
+
+        display: flex;
+        gap: 1.7rem;
+        flex-direction: column;
+
+        a {
+            text-decoration: none;
+            color: lighten(black, 20%);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        a:hover {
+            color: $secondary;
+        }
+    }
+}
+
+@media (min-width: 40em) {
+    .footer-container {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between;
+        max-width: 1280px;
+        margin: auto;
+        padding: 3rem 0;
+    }
+}

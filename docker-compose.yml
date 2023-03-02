@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  blog:
+    build: .
+    container_name: blog
+    ports:
+      - 8000:80

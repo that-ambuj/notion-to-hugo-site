@@ -1,0 +1,126 @@
+$primary: #ff0105;
+$secondary: #ff7501;
+
+#header {
+    background-color: darken(white, 4%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250%;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    #title {
+        color: adjust-color($color: $secondary, $hue: -5deg);
+        align-self: flex-end;
+        font-size: clamp(2.5rem, 11vw, 6rem);
+        font-weight: 500;
+        letter-spacing: -2px;
+        line-height: 110%;
+        margin: auto;
+        margin-top: 1.1em;
+        margin-bottom: 0.3em;
+    }
+}
+
+.list-item-container {
+    margin: 2rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .list-item {
+        padding: 1rem 1.4rem;
+        background-color: white;
+        border: 1px solid darken(white, 10%);
+        border-radius: 10px;
+        transition: box-shadow 300ms ease-out;
+        transition: -moz-box-shadow 300ms ease-out;
+        transition: -webkit-box-shadow 300ms ease-out;
+    }
+
+    a {
+        color: black;
+    }
+
+
+    ul {
+        display: none;
+    }
+
+    h2 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 2px;
+    }
+
+    time {
+        font-size: 0.9rem;
+    }
+
+
+    .summary {
+        margin-top: 10px;
+        color: lighten(black, 30%)
+    }
+}
+
+a:active {
+    color: lighten(black, 10%);
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 40em) {
+    #header {
+        background-size: 125%;
+        height: clamp(4rem, 15vh, 30rem);
+    }
+
+    #title {
+        letter-spacing: -4px !important;
+        margin-bottom: 1em !important;
+    }
+
+    .list-item-container {
+        ul {
+            display: block;
+            list-style: none;
+            padding: 0;
+            margin: 1rem auto;
+        }
+
+        .tag {
+            margin-top: 2px;
+        }
+    }
+
+    .list-item:hover {
+        -webkit-box-shadow: 0 0 12px 3px #ededed;
+        -moz-box-shadow: 0 0 12px 3px #ededed;
+        box-shadow: 0 0 12px 3px #ededed;
+    }
+}
+
+@media (min-width: 70em) {
+    #header {
+        background-size: cover;
+        height: clamp(4rem, 20vh, 30rem);
+    }
+
+    #title {
+        margin-bottom: 0.6em !important;
+    }
+
+    .list-item-container {
+        max-width: 1400px;
+        margin: auto;
+        margin-top: 4rem;
+    }
+}

@@ -1,0 +1,46 @@
+{{ define "head" }}
+{{ $sass := resources.Get "sass/list-page.scss" }}
+{{ $style := $sass | resources.ToCSS | resources.PostCSS | minify }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+{{ $sassPagination := resources.Get "sass/pagination.scss" }}
+{{ $stylePagination := $sassPagination | resources.ToCSS | resources.PostCSS | minify }}
+<link rel="stylesheet" href="{{ $stylePagination.RelPermalink }}">
+{{ end }}
+
+{{ define "title" }}
+Notion to Hugo Blog
+{{ end }}
+
+{{ define "main" }}
+
+<div id="header">
+    <div id="title">
+        Notion to Hugo Blog
+    </div>
+</div>
+
+<div class="list-item-container">
+    {{ range .Paginator.Pages}}
+    <div class="list-item">
+        <a href="{{ .RelPermalink }}">
+            <h2>{{ .Title }}</h2>
+            <div>
+                <time datetime="{{ .Date | time.Format " date_medium" }}">
+                    {{ .Date | time.Format ":date_long" }}
+                </time>
+            </div>
+            <ul class="tags">
+                {{ range (.GetTerms "tags") }}
+                <a class="tag" href="{{ .RelPermalink }}">{{ .Title}}</a>
+                {{ end }}
+            </ul>
+            <div class="summary">
+                {{ .Summary }}
+            </div>
+        </a>
+    </div>
+    {{ end }}
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}
