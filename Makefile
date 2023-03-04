@@ -38,3 +38,4 @@ gh_pages:
 gh_pages_deploy: gh_pages
 	git add .
 	git commit -m "updated github pages $(date -I'hours')"
+	git push
