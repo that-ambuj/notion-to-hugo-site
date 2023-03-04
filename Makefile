@@ -30,3 +30,6 @@ deploy_nginx:
 
 update_nginx: clean_build deploy_nginx
 
+gh_pages: clean build
+	rm -rf docs
+	mv static-site docs
