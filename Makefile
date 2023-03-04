@@ -1,5 +1,5 @@
 CURRENT_TIME := $(shell date -I"hours")
-REPO_NAME = $(basename -s .git $(git config --get remote.origin.url))
+REPO_NAME = $(shell basename -s .git $(shell git config --get remote.origin.url))
 
 # Setup a cronjob for this target
 all: update_nginx deploy_nginx
