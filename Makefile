@@ -1,3 +1,5 @@
+CURRENT_TIME := $(shell date -I"hours")
+
 # Setup a cronjob for this target
 all: update_nginx deploy_nginx
 
@@ -31,11 +33,11 @@ deploy_nginx:
 update_nginx: clean_build deploy_nginx
 
 gh_pages: 
-	yarn build -b /notion-to-hugo-blog
+	yarn build -b /notion-to-hugo-site
 	rm -rf docs
 	mv static-site docs
 
 gh_pages_deploy: gh_pages
 	git add .
-	git commit -m "updated github pages $(date -I'hours')"
+	git commit -m "updated github pages $(CURRENT_TIME)"
 	git push
