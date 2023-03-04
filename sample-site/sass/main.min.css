@@ -1,0 +1,1 @@
+:root{font-family:Inter,Helvetica,system-ui,sans-serif;scroll-behavior:smooth;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:auto}body{margin:0}.flex{display:flex;gap:var(--gap,1rem)}ul{list-style:none;margin:0}.tag{font-size:.9rem;padding:.25rem .5rem;border-radius:5px;text-decoration:none;color:#000;background-color:#e6e6e6}
