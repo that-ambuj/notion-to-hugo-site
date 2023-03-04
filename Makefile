@@ -30,6 +30,11 @@ deploy_nginx:
 
 update_nginx: clean_build deploy_nginx
 
-gh_pages: clean build
+gh_pages: 
+	yarn build -b /notion-to-hugo-blog
 	rm -rf docs
 	mv static-site docs
+
+gh_pages_deploy: gh_pages
+	git add .
+	git commit -m "updated github pages $(date -I'hours')"
