@@ -32,8 +32,6 @@ export async function downloadMarkdown() {
     res.results.map(async (r) => {
       const pageData = await notion.pages.retrieve({ page_id: r.id });
 
-      console.log(pageData.properties?.Name?.title);
-
       // @ts-ignore: JSON data is not typed in pageData
       const tags = pageData?.properties?.Tags?.multi_select.map((t) => t.name);
 
